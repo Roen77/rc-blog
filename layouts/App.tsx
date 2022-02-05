@@ -9,6 +9,7 @@ import BasicVue from '@pages/BasicVue';
 import StateRedux from '@pages/StateRedux';
 import Work from '@pages/Work';
 import Compare from '@pages/Compare';
+import BasicWebpack from '@pages/BasicWebpack';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
@@ -23,7 +24,8 @@ const App = () => {
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']} defaultOpenKeys={['sub1']}>
+        {/* defaultOpenKeys={['sub1']} */}
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']}>
           <SubMenu key="sub1" icon={<CommentOutlined />} title="리엑트">
             <Menu.Item key="rp_1">
               <Link to="/basic/react">기본</Link>
@@ -75,7 +77,12 @@ const App = () => {
           <SubMenu key="sub7" icon={<CommentOutlined />} title="자바스크립트">
             <Menu.Item key="js1">자바스크립트</Menu.Item>
           </SubMenu>
-          <SubMenu key="sub8" icon={<CommentOutlined />} title="할일">
+          <SubMenu key="sub8" icon={<CommentOutlined />} title="웹팩">
+            <Menu.Item key="webpack">
+              <Link to="/basic/webpack">기본</Link>
+            </Menu.Item>
+          </SubMenu>
+          <SubMenu key="sub9" icon={<CommentOutlined />} title="할일">
             <Menu.Item key="work">
               {' '}
               <Link to="/today">오늘 할일</Link>
@@ -101,6 +108,7 @@ const App = () => {
             <Route exact path="/" component={Home}></Route>
             <Route path="/basic/react" component={BasicReact}></Route>
             <Route path="/basic/vue" component={BasicVue}></Route>
+            <Route path="/basic/webpack" component={BasicWebpack}></Route>
             <Route path="/compare" component={Compare}></Route>
             <Route path="/state/redux" component={StateRedux}></Route>
             <Route path="/today" component={Work}></Route>
